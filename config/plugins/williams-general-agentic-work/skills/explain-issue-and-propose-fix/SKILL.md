@@ -1,15 +1,12 @@
 ---
 name: explain-issue-and-propose-fix
-description: Explain what happened and why it happened, then propose a fix.
+description: Rules for explaining an issue, diagnosing its cause, and proposing a fix.
 ---
 
 # Explain Issue and Propose Fix
 
-When executing this workflow, follow these steps in your response:
+Rules for explaining an issue, diagnosing its root cause, and proposing a concrete fix.
 
-## Explain
-- **What happened:** Give a clear explanation of the issue or event.
-- **Why did it happen:** Explain the root cause of the issue.
-
-## Propose
-- **Fix:** Propose a concrete solution or fix for the issue.
+1. **What happened:** Give a clear explanation of the issue or event.
+2. **Why it happened:** Explain the root cause of the issue.
+3. **Proposed fix:** Propose a concrete solution or fix for the issue.

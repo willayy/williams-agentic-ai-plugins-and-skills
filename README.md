@@ -30,7 +30,6 @@ williams-agentic-AI-plugins-and-skills/
 │           └── skills/
 │               ├── ask/
 │               ├── explain-issue-and-propose-fix/
-│               ├── get-related-resources/
 │               ├── review-text/
 │               ├── sandbox-task/
 │               └── skill-creation/

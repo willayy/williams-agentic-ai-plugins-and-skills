@@ -1,6 +1,6 @@
 # General Agentic Work Plugin
 
-A Gemini and Antigravity plugin bundling general agentic workflows, text review, skill creation, and sandbox execution.
+A Gemini and Antigravity plugin bundling general agentic workflows, text review, and skill creation.
 
 ## Plugin Rules
 
@@ -13,5 +13,4 @@ A Gemini and Antigravity plugin bundling general agentic workflows, text review,
 - `ask-project`: Rules for answering questions exclusively using resources and citations from the current project directory.
 - `explain-issue-and-propose-fix`: Rules for explaining an issue, diagnosing its cause, and proposing a fix.
 - `review-text`: Rules for reviewing text for logical, stylistic, typographical, semantic, grammatical, and punctuation errors.
-- `sandbox-task`: Rules for executing autonomous tasks strictly confined inside the sandbox environment.
 - `skill-creation`: Rules and structural guidelines for creating new skills.

@@ -33,7 +33,6 @@ williams-agentic-AI-plugins-and-skills/
 │               ├── ask-project/
 │               ├── explain-issue-and-propose-fix/
 │               ├── review-text/
-│               ├── sandbox-task/
 │               └── skill-creation/
 └── README.md
 ```

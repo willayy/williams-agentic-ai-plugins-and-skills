@@ -1,11 +1,11 @@
 ---
 name: add-commit-push
-description: Make several different git adds, commits, and pushes with fitting messages.
+description: Rules for staging, committing, and pushing changed files with conventional commits.
 ---
 
 # Add, Commit, and Push
 
-This skill guides staging, committing, and pushing changed files within the current working directory or any specified path while adhering to Git commit rules.
+Rules for staging, committing, and pushing changed files within the working directory or specified path.
 
 1. **Stage changes:** Stage changed files (`git add`).
 2. **Create commit:** Create a Git commit adhering to the Git commit rules.

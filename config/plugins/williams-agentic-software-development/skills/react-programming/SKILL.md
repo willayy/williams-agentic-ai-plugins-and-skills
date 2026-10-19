@@ -1,6 +1,6 @@
 ---
 name: react-programming
-description: Contains React and TypeScript coding rules that must be followed when writing, editing, reviewing, or refactoring React code.
+description: Rules for writing computer programs using the React JavaScript framework.
 ---
 
 # React Programming

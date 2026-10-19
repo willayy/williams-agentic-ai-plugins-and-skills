@@ -1,11 +1,11 @@
 ---
 name: get-related-resources
-description: Retrieve verbatim text excerpts and passages from project resources and documentation related to a query, accompanied by citations.
+description: Rules for retrieving verbatim text excerpts and passages with citations from project resources.
 ---
 
 # Get Related Resources
 
-This skill is intended to find and retrieve verbatim excerpts and text passages from project resources and documentation related to a specific question or problem, accompanied by citations.
+Rules for retrieving verbatim text excerpts and passages with citations from project resources and documentation.
 
 - **Resource retrieval:** Search project files, documentation, and resources to locate text excerpts and passages relevant to the question or problem.
 - **Verbatim extracts:** Quote exact, unmodified paragraphs and text segments directly from the source material; do not paraphrase or summarize.

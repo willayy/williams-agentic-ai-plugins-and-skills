@@ -29,6 +29,8 @@ williams-agentic-AI-plugins-and-skills/
 │           │   └── AGENTS.md
 │           └── skills/
 │               ├── ask/
+│               ├── ask-internet/
+│               ├── ask-project/
 │               ├── explain-issue-and-propose-fix/
 │               ├── review-text/
 │               ├── sandbox-task/

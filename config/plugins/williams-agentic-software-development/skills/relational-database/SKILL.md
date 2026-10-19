@@ -1,47 +1,17 @@
 ---
 name: relational-database
-description: Checklist to run when making changes, additions to a relational database or creating a new relational database.
+description: Rules for designing, altering, and validating relational databases.
 ---
 
 # Relational Database
 
-This is a checklist to run when making changes, additions to a relational database or creating a new relational database.
+Rules for designing, altering, and validating relational databases.
 
-## Model distinct entities
-Group attributes by the real-world concept they belong to. Attributes belong in the same table if:
-- They describe the same core entity.
-- They can be uniquely identified with the same primary key.
-- They are created and modified together.
-
-## Map Cardinality to Keys
-Separate data into different tables based on how entities relate to one another:
-- **One-to-One (1:1):** Keep them in the same table by default.
-- **One-to-Many (1:N):** Put the foreign key on the "many" side.
-- **Many-to-Many (N:M):** Create an intermediate junction table containing foreign keys to both parent tables.
-
-## Apply the 3NF Dependency Rule
-Check every column against the primary key. In a normalized table:
-- Every column holds a single, atomic value.
-- Every column depends directly on the entire primary key, depending on just some parts of a composite key does not count.
-- No non-key column depends on another non-key column.
-
-## Constraint naming convention
-
-| Type | Format |
-| --- | --- |
-| Primary Key | `pk_<table>` |
-| Foreign Key | `fk_<source_table>_<target_table>` |
-| Unique | `uq_<table>_<column>` |
-| Check | `chk_<table>_<purpose>` |
-| Default | `df_<table>_<column>` |
-
-## Constraints
-- **Default to NOT NULL:** Allow NULL only when an empty value has a distinct, intentional meaning.
-- **Explicitly Define Delete Behavior:** Never leave foreign key deletion behavior to engine defaults.
-- **Keep CHECK Constraints Independent:** A CHECK constraint must only evaluate the data inside the current row. Never attempt to reference other tables or volatile values.
-
-## When to use a Constraint versus Trigger
-- Always use a constraint by default; use a trigger only when a constraint cannot express the rule.
-
-## CRUD only
-- The database should only serve CRUD operations, all business logic should be kept application side and not in the DB.
+- **Model distinct entities:** Group attributes by the real-world concept they belong to; attributes belong in the same table if they describe the same core entity, share the same primary key, and are created and modified together.
+- **Map cardinality to keys:** Separate data into different tables based on entity relationships: keep One-to-One (1:1) in the same table by default, put foreign keys on the "many" side for One-to-Many (1:N), and use an intermediate junction table for Many-to-Many (N:M).
+- **Apply 3NF dependency rule:** In a normalized table, every column must hold a single atomic value, depend directly on the entire primary key, and not depend on another non-key column.
+- **Constraint naming convention:** Format constraint names systematically using `pk_<table>` (Primary Key), `fk_<source_table>_<target_table>` (Foreign Key), `uq_<table>_<column>` (Unique), `chk_<table>_<purpose>` (Check), and `df_<table>_<column>` (Default).
+- **Nullability and delete behavior:** Default columns to NOT NULL unless an empty value has an intentional meaning, and always explicitly define foreign key deletion behavior rather than relying on engine defaults.
+- **Keep CHECK constraints independent:** A CHECK constraint must only evaluate data inside the current row and never reference other tables or volatile values.
+- **Constraints versus triggers:** Always use a constraint by default; use a trigger only when a constraint cannot express the rule.
+- **CRUD only:** The database should only serve CRUD operations; all business logic must remain application-side.

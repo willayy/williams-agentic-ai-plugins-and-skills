@@ -5,7 +5,7 @@ description: Contains React and TypeScript coding rules that must be followed wh
 
 # React Programming
 
-This styleguide aims to be a complement to standard React and TypeScript conventions supplementing any gaps that they leave and as such has precedence over any rule defined in this style guide.
+Rules for writing computer programs using the React, JavaScript framework.
 
 - **MVVM Architecture:**
   - **Model:** Pure business logic and domain state are placed in the Model.

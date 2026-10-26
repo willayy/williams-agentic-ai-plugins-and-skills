@@ -121,7 +121,7 @@ Rules for how to create git commits, based on the conventional commits specifica
 - **Limit commits to a single software object change:** Exactly one commit per individual SO change. Never group changes to multiple SOs into a single commit.
 
 **Examples of commit messages:**
-```text
+```txt
 feat(auth): add verify_token method
 fix(parser): prevent null reference when input is empty
 refactor(models): move user_validator to separate module

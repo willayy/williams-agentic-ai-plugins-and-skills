@@ -22,7 +22,7 @@ williams-agentic-AI-plugins-and-skills/
 │       │       ├── python-programming/
 │       │       ├── react-programming/
 │       │       └── relational-database/
-│       └── williams-general-agentic-work/
+│       └── williams-agentic-work/
 │           ├── plugin.json
 │           ├── README.md
 │           ├── rules/

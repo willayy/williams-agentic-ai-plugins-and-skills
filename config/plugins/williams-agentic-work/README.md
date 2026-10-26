@@ -1,4 +1,4 @@
-# General Agentic Work Plugin
+# Agentic Work Plugin
 
 A Gemini and Antigravity plugin bundling general agentic workflows, text review, and skill creation.
 

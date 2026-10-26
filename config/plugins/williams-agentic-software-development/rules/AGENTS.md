@@ -2,6 +2,8 @@
 
 Computer Language agnostic rules that should be followed when writing any computer program.
 
+## Architecture & Design Principles
+
 - **Enforce Separation of Concerns (SoC):** A piece of code should ever only do one thing.
 - **Follow Single Responsibility Principle (SRP):** A piece of code should only have one reason to change, where a "reason to change" refers to an actor—a single person, role, or stakeholder group that requests changes to the software.
 - **Distinguish SoC from SRP:** Separation of concerns dictates what the code does (ensuring a piece of code only does one thing), whereas SRP dictates why the code changes (ensuring a piece of code only changes for a single actor).
@@ -14,7 +16,10 @@ Computer Language agnostic rules that should be followed when writing any comput
 - **Adhere to Law of Demeter (LOD):** Adhere to the Law of Demeter (the principle of least knowledge, stating that an object or component should only interact with its immediate dependencies).
 - **Adhere to Interface Segregation Principle (ISP):** Adhere to the Interface Segregation Principle, clients should not be forced to depend on interfaces or methods they do not use.
 - **Adhere to Dependency Inversion Principle (DIP):** Adhere to the Dependency Inversion Principle, high-level modules should not depend on low-level modules; both should depend on abstractions.
-- **Reuse open source and standard library:** Never implement software or functionality that can be obtained from an open source package or the standard library.
+- **Avoid utils folders or files:** Do not create utils folders or files; if you cannot find a logical place for code in your application, consider whether it is actually needed.
+
+## Naming Conventions
+
 - **Follow verb-preposition-noun function naming:** Functions should always follow a verb-(optional) preposition-noun structure (e.g. send_emails); if a preposition can be added, it should be added (e.g. transform_to_json).
 - **Avoid single-letter variable names:** Do not use single-letter variable names.
 - **Avoid abbreviations:** Do not use abbreviations in variable names and spell out words completely.
@@ -22,14 +27,14 @@ Computer Language agnostic rules that should be followed when writing any comput
 - **Avoid types in names:** Do not include data types or type descriptors in variable names.
 - **Avoid Base or Abstract in names:** Do not use "Base" or "Abstract" in names because this should be semantically clear from the type or class itself.
 - **Use types instead of units:** Use dedicated types instead of primitive types to represent units of measurement.
+
+## Code Structure & Control Flow
+
 - **Avoid nested calls:** Function calls should not be nested; call a function, store the return value in a variable, and then pass the variable.
 - **Limit indenting and nesting depth:** No code, except switch statements, may nest deeper than one level from the root level of a function, file or class.
 - **Enforce line limits:** Lines of code should not span more than 100 characters.
-- **Avoid storing data in code:** Do not store data in code.
+- **Avoid storing data in code:** Do not store data—including credentials, mock data, configs, and lookup constants—in code.
 - **Limit anonymous functions:** Anonymous functions should never bypass the line limit, though shorter ones used for maps and predicates are acceptable.
-- **Do not use default arguments:** Agents should never use default arguments.
-- **Avoid default returns:** Functions should avoid default returns and explicitly handle every return path.
-- **Avoid utils folders or files:** Do not create utils folders or files; if you cannot find a logical place for code in your application, consider whether it is actually needed.
 
 **Examples of illegal nesting:**
 ```py
@@ -59,8 +64,8 @@ city = order.get_customer().get_address().get_city()
 **Examples of composition anti-patterns:**
 ```py
 # Anti-pattern: adding a position field to all entity classes with an interface
-# instead of having them inherit a shared base class
-class Entity(Protocol):
+# instead of having them inherit a shared parent class
+class Positionable(Protocol):
     position: Position
 
 class Player:
@@ -71,15 +76,15 @@ class Enemy:
     def __init__(self, position: Position) -> None:
         self.position = position
 
-# Correct: share widely used state through BaseEntity parent
-class BaseEntity:
+# Correct: share widely used state through Entity parent
+class Entity:
     def __init__(self, position: Position) -> None:
         self.position = position
 
-class Player(BaseEntity):
+class Player(Entity):
     pass
 
-class Enemy(BaseEntity):
+class Enemy(Entity):
     pass
 ```
 
@@ -101,6 +106,8 @@ Rules for managing agents in agentic software engineering.
 - **Store single-use programs in scratch directory:** Any extra programs written by the agent to complete a task should be placed in the scratch directory nowhere else.
 - **Request permission before running code:** Always ask if code being worked on should be run or not.
 - **Do not use default arguments:** Agents should never use default arguments.
+- **Avoid default returns:** Functions should avoid default returns and explicitly handle every return path.
+- **Reuse open source and standard library:** Never implement software or functionality that can be obtained from an open source package or the standard library.
 
 # Git Instructions
 

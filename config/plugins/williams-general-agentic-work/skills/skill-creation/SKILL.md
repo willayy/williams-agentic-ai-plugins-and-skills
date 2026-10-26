@@ -14,5 +14,5 @@ Rules and structural guidelines for defining the layout, formatting, and convent
 - **Make bullet points action-oriented:** Bullet points should be action-oriented, either do's or don'ts.
 - **Separate generic action from specific details:** Use the bold header text to address the generic action and the description text to provide the exacts.
 - **Limit description:** Formulate every bullet point or enumerated item as exactly one complete sentence.
-- **Omit intermediate section headers:** Do not use intermediate section headers (`##`); integrate all instructions, constraints, and output formats into the formatted list items.
-- **Include examples only when requested:** Include examples only when explicitly requested by the user, formatted as bold text (`**Examples of <topic>:**`) followed directly by a code block (```...```).
+- **Omit intermediate section headers:** Do not use intermediate section headers (`##`) unless grouping instructions into distinct categories; integrate all instructions, constraints, and output formats into the formatted list items.
+- **Place examples under corresponding sections:** Include examples only when explicitly requested by the user, placed directly under their corresponding section and formatted as bold text (`**Examples of <topic>:**`) followed directly by a code block (```...```).

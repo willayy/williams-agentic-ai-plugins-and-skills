@@ -31,6 +31,7 @@ williams-agentic-AI-plugins-and-skills/
 │               ├── ask/
 │               ├── ask-internet/
 │               ├── ask-project/
+│               ├── ask-quick/
 │               ├── explain-issue-and-propose-fix/
 │               ├── review-text/
 │               └── skill-creation/

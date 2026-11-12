@@ -15,6 +15,34 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify semantic version and release tag
+        run: |
+          VERSIONS=$(jq -r '.version' config/plugins/*/plugin.json | sort -u)
+          VERSION_COUNT=$(echo "$VERSIONS" | wc -l | tr -d ' ')
+
+          if [ -z "$VERSIONS" ]; then
+            echo "::error::No version found in config/plugins/*/plugin.json"
+            exit 1
+          fi
+
+          if [ "$VERSION_COUNT" -ne 1 ]; then
+            echo "::error::Plugins have mismatched versions:"
+            echo "$VERSIONS"
+            exit 1
+          fi
+
+          TAG="v${VERSIONS}"
+          echo "Target release tag: $TAG"
+
+          if git rev-parse -q --verify "refs/tags/$TAG" >/dev/null; then
+            echo "::error::Release tag '$TAG' already exists. The version in plugin.json must be incremented before releasing."
+            exit 1
+          fi
+
+          echo "RELEASE_TAG=$TAG" >> "$GITHUB_ENV"
 
       - name: Package skills
         run: |
@@ -41,7 +69,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TAG="v$(date +'%Y.%m.%d')-${{ github.run_number }}"
-          gh release create "$TAG" dist/*.zip \
-            --title "Skills & Plugins Release $TAG" \
+          gh release create "$RELEASE_TAG" dist/*.zip \
+            --title "Release $RELEASE_TAG" \
             --generate-notes

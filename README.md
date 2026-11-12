@@ -6,34 +6,35 @@ A central repository storing global customization instructions, rules, and plugi
 
 ```
 williams-agentic-AI-plugins-and-skills/
-├── GEMINI.md
 ├── .github/
 │   └── workflows/
 │       └── release-skills.yml
 ├── config/
+│   ├── global-rules/
+│   │   └── AGENTS.md
 │   └── plugins/
-│       ├── williams-agentic-software-development/
+│       ├── williams-agentic-software-development-skills/
 │       │   ├── plugin.json
 │       │   ├── README.md
 │       │   ├── rules/
 │       │   │   └── AGENTS.md
 │       │   └── skills/
-│       │       ├── add-commit-push/
+│       │       ├── git/
 │       │       ├── python-programming/
 │       │       ├── react-programming/
-│       │       └── relational-database/
-│       └── williams-agentic-work/
+│       │       └── relational-databases/
+│       └── williams-general-agentic-skills/
 │           ├── plugin.json
 │           ├── README.md
 │           ├── rules/
 │           │   └── AGENTS.md
 │           └── skills/
-│               ├── ask/
-│               ├── ask-internet/
-│               ├── ask-project/
-│               ├── ask-quick/
-│               ├── explain-issue-and-propose-fix/
-│               ├── review-text/
-│               └── skill-creation/
+│               ├── concise-answers/
+│               ├── internet-sources/
+│               ├── issue-diagnosis/
+│               ├── project-resources/
+│               ├── question-answering/
+│               ├── skill-creation/
+│               └── text-review/
 └── README.md
 ```

@@ -30,11 +30,10 @@ williams-agentic-AI-plugins-and-skills/
 │           │   └── AGENTS.md
 │           └── skills/
 │               ├── concise-answers/
-│               ├── internet-sources/
 │               ├── issue-diagnosis/
-│               ├── project-resources/
 │               ├── question-answering/
 │               ├── skill-creation/
-│               └── text-review/
+│               ├── text-review/
+│               └── using-source/
 └── README.md
 ```

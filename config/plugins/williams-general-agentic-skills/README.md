@@ -10,6 +10,6 @@ A Gemini and Antigravity plugin bundling general agentic knowledge bases, text r
 
 - `issue-diagnosis`: Instructions for diagnosing issues, identifying root causes, and proposing concrete resolutions.
 - `question-answering`: Instructions for answering questions directly and concisely in a read-only manner.
-- `skill-rules-creation`: Instructions for authoring and formatting skills and agent rule files.
+- `skill-rule-creation`: Instructions for authoring and formatting skills and agent rule files.
 - `text-review`: Instructions for reviewing text for logical, stylistic, typographical, semantic, grammatical, and punctuation errors.
 - `using-sources`: Instructions for answering questions using resources and citations from the internet or local project files.

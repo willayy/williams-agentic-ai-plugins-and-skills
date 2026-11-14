@@ -12,4 +12,3 @@ the internet or from local project files.
 - **Quote sources verbatim:** Strive to quote sources verbatim to support arguments and claims.
 - **Distinguish source text:** Format quoted source text using blockquotes or code blocks.
 - **Provide explicit citations:** Cite canonical web URLs and relative file paths with line numbers.
-- **Enforce read-only execution:** Answer directly without modifying, creating, or deleting files.

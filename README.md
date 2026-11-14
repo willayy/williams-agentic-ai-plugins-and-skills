@@ -29,7 +29,6 @@ williams-agentic-AI-plugins-and-skills/
 │           ├── rules/
 │           │   └── AGENTS.md
 │           └── skills/
-│               ├── concise-answers/
 │               ├── issue-diagnosis/
 │               ├── question-answering/
 │               ├── skill-creation/

@@ -19,5 +19,5 @@ Use this skill when designing, creating, or auditing Antigravity skills or AGENT
 - **Make bullet points action-oriented:** Formulate instruction bullets as action-oriented rules.
 - **Separate action from details:** Use bold text for generic action and description for exacts.
 - **Limit instruction length:** Formulate every instruction item as exactly one complete sentence.
-- **Omit intermediate headers (skills only):** Do not use intermediate section headers (`##`).
+- **Omit intermediate headers:** Do not use intermediate section headers (`##`).
 - **Indent example items:** Place examples as indented bullet points directly beneath the rule.

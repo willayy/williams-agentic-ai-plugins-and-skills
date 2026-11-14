@@ -4,13 +4,13 @@ A central repository storing global customization instructions, rules, and plugi
 
 ## Repository Structure
 
-```
+```txt
 williams-agentic-AI-plugins-and-skills/
 ├── .github/
 │   └── workflows/
 │       └── release-skills.yml
 ├── config/
-│   ├── global-rules/
+│   ├── global-rules-file/
 │   │   └── AGENTS.md
 │   └── plugins/
 │       ├── williams-agentic-software-development-skills/

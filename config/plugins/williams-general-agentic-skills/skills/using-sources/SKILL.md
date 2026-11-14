@@ -13,4 +13,3 @@ the internet or from local project files.
 - **Distinguish source text:** Format quoted source text using blockquotes or code blocks.
 - **Provide explicit citations:** Cite canonical web URLs and relative file paths with line numbers.
 - **Enforce read-only execution:** Answer directly without modifying, creating, or deleting files.
-- **Apply technical formatting:** Enhance explanations using LaTeX formulas, diagrams, and links.

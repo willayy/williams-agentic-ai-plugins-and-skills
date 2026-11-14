@@ -7,7 +7,7 @@ description: Instructions for reviewing text for logical, stylistic, typographic
 
 Instructions for reviewing text to identify and correct logical, stylistic, typographical, semantic, grammatical, and punctuation errors. Use this skill when reviewing or proofreading text, documentation, or prose.
 
-- **Order error evaluation:** Prioritize error categories in sequence: logical, stylistic, typographical and spelling, semantic, grammatical, punctuation, and additional defects.
+- **Order error evaluation:** Evaluate error categories in the following order: logical, stylistic, typographical and spelling, semantic, grammatical, punctuation, and additional defects.
 - **Identify logical flaws:** Classify flaws in reasoning, internal contradictions, unsupported assertions, and fallacies as logical errors.
 - **Address stylistic defects:** Flag readability impediments, awkward phrasing, excessive verbosity, tone inconsistencies, and inappropriate register as stylistic errors.
 - **Correct typographical errors:** Treat misspelled words, accidental keystrokes, missing or duplicated spaces, and formatting defects as typographical errors.

@@ -9,9 +9,8 @@ A Gemini and Antigravity plugin bundling general agentic knowledge bases, text r
 ## Bundled Skills
 
 - `concise-answers`: Instructions for providing direct, concise answers in a read-only manner.
-- `internet-sources`: Instructions for answering questions exclusively using resources and citations from the internet.
 - `issue-diagnosis`: Instructions for diagnosing issues, identifying root causes, and proposing concrete resolutions.
-- `project-resources`: Instructions for answering questions exclusively using resources and citations from the current project directory.
-- `question-answering`: Instructions for answering questions by routing dynamically between project resources and internet sources.
+- `question-answering`: Instructions for answering questions by routing dynamically between direct answers and source usage.
 - `skill-creation`: Instructions for defining the layout, formatting, and conventions of skills.
 - `text-review`: Instructions for reviewing text for logical, stylistic, typographical, semantic, grammatical, and punctuation errors.
+- `using-source`: Instructions for answering questions using resources and citations from the internet or local project files.

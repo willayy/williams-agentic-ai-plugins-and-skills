@@ -1,16 +1,15 @@
 ---
 name: question-answering
-description: Instructions for answering questions by routing dynamically between concise answers and source usage; use when an inquiry may require internal repository files, external web data, or direct answers.
+description: Instructions for answering questions directly and concisely in a read-only manner; use when answering questions or inquiries.
 ---
 
 # Question Answering
 
-Instructions for answering questions by routing dynamically between direct answers and source usage.
-Use this skill when an inquiry may require internal repository files, external web data, or answers.
+Instructions for answering questions directly and concisely in a read-only manner.
+Use this skill when answering questions or inquiries.
 
-- **Route information sources:** Route queries to `concise-answers` or source retrieval in `using-source`.
-- **Distinguish source passages:** Format quoted source excerpts to remain visibly distinguishable from model-authored commentary using blockquotes.
-- **Quote verbatim excerpts:** Reproduce exact, unmodified text segments directly from retrieved sources without paraphrasing quoted passages.
-- **Cite authoritative references:** Provide explicit citations referencing exact file paths for internal project resources and canonical URLs for external web sources.
-- **Enforce read-only execution:** Resolve inquiries directly without altering, generating, or removing workspace files or configuration variables.
-- **Apply presentation formatting:** Render answers using LaTeX equations, structural figures, and descriptive links wherever clarity requires.
+- **Deliver direct answers:** Provide brief, targeted responses using minimal formatting.
+- **Limit answer length:** Strive to formulate answers concisely so they fit on a single screen.
+- **Consult external sources:** Direct inquiries requiring web evidence or files to `using-source`.
+- **Enforce read-only execution:** Answer directly without modifying, creating, or deleting files.
+- **Apply technical formatting:** Enhance explanations using LaTeX formulas, diagrams, and links.

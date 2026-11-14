@@ -1,9 +1,9 @@
 ---
-name: using-source
+name: using-sources
 description: Instructions for answering questions using resources and citations from the internet or local project files; use when providing answers that require sources of information from the internet or local project files.
 ---
 
-# Using Source
+# Using Sources
 
 Instructions for answering questions using resources and citations collected from the internet or
 local project files. Use this skill when providing answers that require sources of information from

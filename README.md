@@ -31,7 +31,7 @@ williams-agentic-AI-plugins-and-skills/
 │           └── skills/
 │               ├── issue-diagnosis/
 │               ├── question-answering/
-│               ├── skill-rules-creation/
+│               ├── skill-rule-creation/
 │               ├── text-review/
 │               └── using-sources/
 └── README.md

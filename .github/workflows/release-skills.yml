@@ -23,39 +23,31 @@ jobs:
       - name: Verify semantic version and release tag
         run: |
           python3 - << 'EOF'
-          import glob
           import json
           import os
           import re
           import subprocess
           import sys
+          from pathlib import Path
 
-          plugin_files = glob.glob("config/plugins/*/plugin.json")
+          plugin_files = list(Path("config/plugins").glob("*/plugin.json"))
           if not plugin_files:
-              print("::error::No plugin.json files found.")
-              sys.exit(1)
+              sys.exit("::error::No plugin.json files found.")
 
-          versions = set()
-          for pf in plugin_files:
-              with open(pf, "r", encoding="utf-8") as f:
-                  data = json.load(f)
-                  ver = data.get("version")
-                  if not ver:
-                      print(f"::error::Missing version in {pf}")
-                      sys.exit(1)
-                  versions.add(ver)
+          versions = {
+              json.loads(p.read_text(encoding="utf-8")).get("version")
+              for p in plugin_files
+          }
+          if None in versions or "" in versions:
+              sys.exit("::error::Missing version in one or more plugin.json files")
+          if len(versions) != 1:
+              sys.exit(f"::error::Plugins have mismatched versions: {versions}")
 
-          if len(versions) > 1:
-              print(f"::error::Plugins have mismatched versions: {versions}")
-              sys.exit(1)
+          version_str = next(iter(versions))
+          if not (m := re.match(r"^(\d+)\.(\d+)\.(\d+)$", version_str)):
+              sys.exit(f"::error::Version '{version_str}' is not valid semantic version (a.b.c)")
 
-          version_str = versions.pop()
-          semver_match = re.match(r"^(\d+)\.(\d+)\.(\d+)$", version_str)
-          if not semver_match:
-              print(f"::error::Version '{version_str}' is not a valid semantic version (a.b.c)")
-              sys.exit(1)
-
-          curr = tuple(int(x) for x in semver_match.groups())
+          curr = tuple(map(int, m.groups()))
           target_tag = f"v{version_str}"
           print(f"Target release tag: {target_tag}")
 
@@ -66,17 +58,13 @@ jobs:
 
           if ref_type == "tag":
               if ref_name != target_tag:
-                  print(f"::error::Pushed tag '{ref_name}' does not match plugin.json '{target_tag}'")
-                  sys.exit(1)
+                  sys.exit(f"::error::Pushed tag '{ref_name}' != plugin.json '{target_tag}'")
               print(f"Tag matches plugin.json version: {ref_name}")
-          else:
-              tag_check = subprocess.run(
-                  ["git", "rev-parse", "-q", "--verify", f"refs/tags/{target_tag}"],
-                  capture_output=True,
-              )
-              if tag_check.returncode == 0:
-                  print(f"::error::Release tag '{target_tag}' already exists. Version must increment.")
-                  sys.exit(1)
+          elif subprocess.run(
+              ["git", "rev-parse", "-q", "--verify", f"refs/tags/{target_tag}"],
+              capture_output=True,
+          ).returncode == 0:
+              sys.exit(f"::error::Release tag '{target_tag}' already exists. Increment version")
 
           tag_proc = subprocess.run(
               ["git", "tag", "-l", "v*"],
@@ -84,37 +72,31 @@ jobs:
               text=True,
               check=True,
           )
-          prev_versions = []
-          for tag in tag_proc.stdout.splitlines():
-              m = re.match(r"^v(\d+)\.(\d+)\.(\d+)$", tag.strip())
-              if m:
-                  v = tuple(int(x) for x in m.groups())
-                  if v != curr:
-                      prev_versions.append(v)
+          tags = [
+              tuple(map(int, tm.groups()))
+              for t in tag_proc.stdout.splitlines()
+              if (tm := re.match(r"^v(\d+)\.(\d+)\.(\d+)$", t.strip()))
+          ]
+          prev = sorted(v for v in tags if v != curr)
 
-          if prev_versions:
-              prev_versions.sort()
-              prev = prev_versions[-1]
-              p_str = f"{prev[0]}.{prev[1]}.{prev[2]}"
-              c_str = f"{curr[0]}.{curr[1]}.{curr[2]}"
-
-              is_patch = (curr[0] == prev[0] and curr[1] == prev[1] and curr[2] == prev[2] + 1)
-              is_minor = (curr[0] == prev[0] and curr[1] == prev[1] + 1 and curr[2] == 0)
-              is_major = (curr[0] == prev[0] + 1 and curr[1] == 0 and curr[2] == 0)
-
-              if not (is_patch or is_minor or is_major):
-                  print(
-                      f"::error::Invalid version increment from {p_str} to {c_str}. "
+          if prev:
+              p = prev[-1]
+              if not (
+                  curr == (p[0], p[1], p[2] + 1)
+                  or curr == (p[0], p[1] + 1, 0)
+                  or curr == (p[0] + 1, 0, 0)
+              ):
+                  p_str = f"{p[0]}.{p[1]}.{p[2]}"
+                  sys.exit(
+                      f"::error::Invalid version increment from {p_str} to {version_str}. "
                       "Exactly one component (a, b, or c) must increment by one step."
                   )
-                  sys.exit(1)
-              print(f"Valid single-step increment from {p_str} to {c_str}")
+              print(f"Valid single-step increment from {p[0]}.{p[1]}.{p[2]} to {version_str}")
           else:
               print(f"No previous semver tags found. Starting version: {version_str}")
 
-          github_env = os.environ.get("GITHUB_ENV")
-          if github_env:
-              with open(github_env, "a", encoding="utf-8") as f:
+          if gh_env := os.environ.get("GITHUB_ENV"):
+              with open(gh_env, "a", encoding="utf-8") as f:
                   f.write(f"RELEASE_TAG={target_tag}\n")
           EOF
 

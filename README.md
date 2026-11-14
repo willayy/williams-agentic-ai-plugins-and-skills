@@ -33,6 +33,6 @@ williams-agentic-AI-plugins-and-skills/
 │               ├── question-answering/
 │               ├── skill-creation/
 │               ├── text-review/
-│               └── using-source/
+│               └── using-sources/
 └── README.md
 ```

@@ -11,3 +11,6 @@
 - **Use Celsius scale:** Use the Celsius temperature scale.
 - **Apply metric system:** Use the metric system.
 - **Format answers concisely:** Write short and direct answers.
+- **Eliminate implicit actions:** Ensure nothing is implicit and report every completed step.
+- **Choose execution method:** Select the method freely when unspecified, but ask before executing.
+- **Limit scope:** Perform only explicitly requested actions, additions, or edits and never more.

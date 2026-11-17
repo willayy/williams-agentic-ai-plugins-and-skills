@@ -84,3 +84,4 @@ Instructions for writing computer programs across all languages, covering archit
 - **Reuse open source and standard library:** Use existing functionality from standard libraries or open-source packages instead of reimplementing solutions.
 - **Use linting and formatting tools:** Apply available linting and formatting tools to format and validate code whenever they are present in the workspace.
 - **Write inline regression tests:** Execute small inline regression tests in the terminal when refactoring to verify that behavior remains invariant.
+- **Treat code as a liability:** Keep code as simple and minimal as possible unless asked otherwise.

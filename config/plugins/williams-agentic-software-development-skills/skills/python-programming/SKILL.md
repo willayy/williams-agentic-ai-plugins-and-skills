@@ -12,3 +12,6 @@ Instructions for writing computer programs using the Python programming language
 - **Define inner helpers without underscores:** Format inner helper functions without leading underscores because their visibility is already restricted to their enclosing scope.
 - **Expose package APIs via init:** Expose a package subsystem's public API explicitly through `__init__.py` while keeping internal implementation modules private (PEP8).
 - **Choose pattern matching versus if statements:** Use match/case statements for equality checks against multiple discrete values (PEP634), and reserve if statements for boolean conditional logic.
+- **Avoid try-except blocks:** Do not wrap code in try-except statements, and instead allow exceptions to propagate directly so issues are surfaced immediately.
+- **Avoid arbitrary default arguments:** Require callers to pass parameters explicitly instead of configuring functions or methods with arbitrary default values.
+- **Avoid writing docstrings:** Do not write or author docstrings for modules, classes, functions, or methods, as only the user writes docstrings.
